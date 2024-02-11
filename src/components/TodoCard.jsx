@@ -1,7 +1,9 @@
 import { FaCheckToSlot, FaEye, FaTrash } from "react-icons/fa6";
 import { MdEdit } from "react-icons/md";
+import useGetLoggedIn from "../hook/useGetLoggedIn";
 
 const TodoCard = () => {
+    const {loggedIn} = useGetLoggedIn()
     return (
         <div className="flex sm:items-center justify-between flex-col sm:flex-row gap-5 bg-white p-5 rounded-md ">
             <div className="flex items-center gap-2">
@@ -14,8 +16,8 @@ const TodoCard = () => {
                 </div>
             </div>
             <div className="flex items-center gap-2">
-                <button className="bg-slate-200 p-2 rounded-sm text-xl text-slate-700 hover:bg-slate-300 disabled:bg-slate-200 disabled:opacity-65" disabled><FaTrash /></button>
-                <button className="bg-slate-200 p-2 rounded-sm text-xl text-slate-700 hover:bg-slate-300 disabled:bg-slate-200 disabled:opacity-65" disabled><MdEdit /></button>
+                <button className="bg-slate-200 p-2 rounded-sm text-xl text-slate-700 hover:bg-slate-300 disabled:bg-slate-200 disabled:opacity-65" disabled={!loggedIn}><FaTrash /></button>
+                <button className="bg-slate-200 p-2 rounded-sm text-xl text-slate-700 hover:bg-slate-300 disabled:bg-slate-200 disabled:opacity-65" disabled={!loggedIn}><MdEdit /></button>
                 <button className="bg-slate-200 p-2 rounded-sm text-xl text-slate-700 hover:bg-slate-300 disabled:bg-slate-200 disabled:opacity-65"><FaEye /></button>
             </div>
         </div>

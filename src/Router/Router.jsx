@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import AddTodo from "../pages/AddTodo";
 import EditTodo from "../pages/EditTodo";
 import SiginIn from "../pages/SiginIn";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const Router = createBrowserRouter([
     },
     {
         path: '/add',
-        element: <AddTodo />
+        element: <PrivateRoute><AddTodo /></PrivateRoute>
     },
     {
         path: '/signin',
@@ -26,7 +27,7 @@ const Router = createBrowserRouter([
     },
     {
         path: '/edit/:id',
-        element: <EditTodo />
+        element: <PrivateRoute><EditTodo /></PrivateRoute>
     }
 ])
 

@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import EnrolTodo from "../components/EnrolTodo";
 
 const Details = () => {
     const navigate = useNavigate();
+    const [show, setShow] = useState(false);
 
     return (
         <div className="bg-slate-50 min-h-screen p-10 space-y-8">
@@ -13,9 +16,11 @@ const Details = () => {
                         <p className="text-slate-500">Total Enrol: <span className="text-green-500 font-medium">10</span></p>
                     </div>
                     <p className="text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, eius. Harum quis dolore tenetur sequi nobis ullam reprehenderit doloribus sed.</p>
-                    <div className="flex items-center gap-4 mt-4 pt-4 border-t">
-                        <button className="bg-green-500 px-4 py-2 text-sm rounded-md text-white">Enrol</button>
+                    <div className="flex items-center gap-4 mt-4 pt-4 border-t relative">
+                        <button onClick={() => setShow(!show)} className="bg-green-500 px-4 py-2 text-sm rounded-md text-white">Enrol</button>
                         <button onClick={() => navigate('/')} className="bg-slate-500 px-4 py-2 text-sm rounded-md text-white">Go To Home</button>
+
+                        <EnrolTodo show={show} setShow={setShow} />
                     </div>
                 </div>
             </div>
