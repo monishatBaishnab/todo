@@ -1,8 +1,16 @@
-# React + Vite
+### Welcome to the Task Management site.
+Live Link: [https://todoapp-db34d.web.app](https://todoapp-db34d.web.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+As soon as we enter the task management site, we first see some tasks and some options to manipulate them. From where the three options are Task Edit Delete and View Details, but a normal user can just view the task and view its details.
+To edit, delete or create a new task, first login with admin email and password. Clicking on the sign in button on the left will take you to the sign in page.
+### Admin Email & Password
+```javascript
+Email: monishat@gmail.com
+Password: monishat
+```
+### Features:
 
-Currently, two official plugins are available:
+- All task items can be repositioned by drag and drop.
+- There are options to create, edit, delete new tasks.
+- Clean and minimalistic user interface design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
