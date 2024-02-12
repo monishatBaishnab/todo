@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import TodoContainer from "../components/TodoContainer";
 import useGetLoggedIn from "../hook/useGetLoggedIn";
-import useFetchTodos from "../hook/useFetchTodos";
 
 const Home = () => {
-    const { loggedIn } = useGetLoggedIn();
+    const { loggedIn, setLoggedIn } = useGetLoggedIn();
     const navigate = useNavigate();
-    const todos = useFetchTodos();
-    console.log(todos);
+
+    const handleSignOut = () => {
+        localStorage.removeItem('loggedIn');
+        setLoggedIn(false);
+    }
+
     return (
         <div className="bg-slate-50 min-h-screen p-10 space-y-8">
             <h2 className="text-5xl uppercase font-semibold text-slate-600 text-center"><span className="text-green-500">Todo</span> App</h2>
@@ -17,7 +20,10 @@ const Home = () => {
                         ?
                         <button onClick={() => navigate('/signin')} className="bg-green-500 px-5 py-2 rounded-md text-white">Sign in</button>
                         :
-                        <button onClick={() => navigate('/add')} className="bg-green-500 px-5 py-2 rounded-md text-white">Add Todo</button>
+                        <div>
+                            <button onClick={() => navigate('/add')} className="bg-green-500 px-5 py-2 rounded-md text-white">Add Todo</button>
+                            <button onClick={handleSignOut} className="bg-slate-500 px-5 py-2 rounded-md text-white ml-3">Sign out</button>
+                        </div>
                 }
                 <p className="text-slate-500 text-sm mt-2">Note: If you want to add, edit or delete a todo, then signin with admin email and password.</p>
                 <TodoContainer />

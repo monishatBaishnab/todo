@@ -12,10 +12,12 @@ const Router = createBrowserRouter([
         path: '/',
         element: <Home />,
         errorElement: <Error />,
+        loader: async () => fetch(`https://todo-server-ten-wine.vercel.app/todos`)
     },
     {
         path: 'todo/:id',
-        element: <Details />
+        element: <Details />,
+        loader: async ({params}) => fetch(`https://todo-server-ten-wine.vercel.app/todos/${params.id}`)
     },
     {
         path: '/add',
@@ -27,7 +29,8 @@ const Router = createBrowserRouter([
     },
     {
         path: '/edit/:id',
-        element: <PrivateRoute><EditTodo /></PrivateRoute>
+        element: <PrivateRoute><EditTodo /></PrivateRoute>,
+        loader: async ({params}) => fetch(`https://todo-server-ten-wine.vercel.app/todos/${params.id}`)
     }
 ])
 

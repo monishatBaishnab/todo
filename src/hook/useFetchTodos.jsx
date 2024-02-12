@@ -1,16 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 const useFetchTodos = () => {
-    const [todos, setTodos] = useState([]);
-    
+    const fetchTodos = async () => {
+        const res = await axios.get('https://todo-server-ten-wine.vercel.app/todos');
+        return res?.data;
+    }
 
-    useEffect(() => {  
-        axios.get('https://todo-server-ten-wine.vercel.app/todos')
-        .then(res => setTodos(res.data));
-    }, [])
+    const {data: todos, isLoading: todoLoading, refetch: todoRefetch} = useQuery({queryKey: 'todos', queryFn: fetchTodos});
 
-    return todos;
+    return {todos, todoLoading, todoRefetch};
 };
 
 export default useFetchTodos;
