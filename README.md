@@ -1,5 +1,5 @@
 ### Welcome to the Task Management site.
-Live Link: [https://todoapp-db34d.web.app](https://todoapp-db34d.web.app/)
+Live Link: [https://harmonious-sable-06bca2.netlify.app/](https://harmonious-sable-06bca2.netlify.app/)
 
 As soon as we enter the task management site, we first see some tasks and some options to manipulate them. From where the three options are Task Edit Delete and View Details, but a normal user can just view the task and view its details.
 To edit, delete or create a new task, first login with admin email and password. Clicking on the sign in button on the left will take you to the sign in page.
