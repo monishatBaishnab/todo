@@ -8,16 +8,15 @@ const SiginIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        if(!password || !email){
+        if (!password || !email) {
             localStorage.setItem('loggedIn', false);
             return toast.error('Field left blank.');
-        }
-        if(email === 'monishat@gmail.com' && password === 'monishat'){
+        } else if (email === 'monishat@gmail.com' && password === 'monishat') {
             localStorage.setItem('loggedIn', true);
             navigate('/');
             return toast.success('Signin Success!');
-        }else{
-            localStorage.setItem('loggedIn', false);
+        } else {
+            localStorage.removeItem('loggedIn');
             return toast.error('Password or Email Mismatch');
         }
     }

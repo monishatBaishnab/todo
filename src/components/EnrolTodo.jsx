@@ -7,19 +7,26 @@ import axios from "axios";
 const EnrolTodo = ({ show, setShow, todoDetails }) => {
 
     const [email, setEmail] = useState('');
+
+    const veriFyEmail = email => {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
     const handleEnrol = async () => {
         const toastId = toast.loading('Adding your enrol.');
-        if(todoDetails?.enroledEmail?.includes(email)){
+        if (todoDetails?.enroledEmail?.includes(email)) {
             setEmail('');
-            return toast.error('This email already enroled.', {id: toastId});
+            return toast.error('This email already enroled.', { id: toastId });
         }
 
         todoDetails.enroledEmail = [...todoDetails.enroledEmail, email];
-
-        if(!email){
+        const verifiedEmail = veriFyEmail(email);
+        
+        if(!verifiedEmail){
             return toast.error(' Invalid Email.', {id: toastId});
         }
-        
+
         try {
             await axios.put(`https://todo-server-ten-wine.vercel.app/todos/${todoDetails?._id}`, todoDetails);
             setShow(!show);
@@ -29,7 +36,7 @@ const EnrolTodo = ({ show, setShow, todoDetails }) => {
             console.log(error);
             toast.error('Uncought error.', {id: toastId});
         }
-        
+
     }
     return (
         <div className={`absolute left-0 max-w-sm bg-white p-5 flex items-center gap-2 rounded-md transition-all ${show ? 'bottom-0 visible opacity-100' : '-bottom-2 opacity-0 invisible'}`}>

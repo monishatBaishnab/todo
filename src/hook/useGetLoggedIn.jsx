@@ -9,7 +9,7 @@ const useGetLoggedIn = () => {
         setLoading(false);
     }, [])
 
-    return {loggedIn, loading, setLoggedIn};
+    return {loggedIn: JSON.parse(loggedIn), loading, setLoggedIn};
 };
 
 export default useGetLoggedIn;
