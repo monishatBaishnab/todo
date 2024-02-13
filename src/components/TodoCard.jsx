@@ -2,7 +2,7 @@ import { FaCheckToSlot, FaEye, FaTrash } from "react-icons/fa6";
 import { MdEdit } from "react-icons/md";
 import useGetLoggedIn from "../hook/useGetLoggedIn";
 import PropTypes from 'prop-types';
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useSortable } from "@dnd-kit/sortable";
