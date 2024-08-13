@@ -20,7 +20,7 @@ const Home = () => {
                     <p className="text-slate-500 text-sm mt-2">Note: If you want to add, edit or delete a todo, then signin with admin email and password.</p>
                     <TodoContainer />
                 </div>
-                <div className="col-span-2 mt-8">
+{/*                 <div className="col-span-2 mt-8">
                     <h4 className="text-3xl font-medium capitalize mt-5 text-center text-green-500">widget from public api</h4>
                     <div className="bg-slate-100 p-5 rounded-md space-y-3">
                         {
@@ -30,7 +30,7 @@ const Home = () => {
                             </div>)
                         }
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
